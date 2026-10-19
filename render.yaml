@@ -1,0 +1,38 @@
+# Render Blueprint: Render > New > Blueprint > pick this repo. It creates the API service.
+# You'll be asked for each "sync: false" value (see backend/.env.example).
+services:
+  - type: web
+    name: liyfe-transpo-api
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    plan: starter
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: STRIPE_SECRET_KEY
+        sync: false
+      - key: STRIPE_WEBHOOK_SECRET
+        sync: false
+      - key: GOOGLE_MAPS_SERVER_KEY
+        sync: false
+      - key: FRONTEND_URL
+        sync: false
+      - key: ADMIN_EMAILS
+        sync: false
+      - key: COMPANY_LEGAL_NAME
+        value: Liyfe Transpo LLC
+      - key: TIER_MILES
+        value: "10"
+      - key: TIER_PRICE_CENTS
+        value: "499"
+      - key: MAX_MILES
+        value: "40"
+      - key: SERVICE_FEE_CENTS
+        value: "50"

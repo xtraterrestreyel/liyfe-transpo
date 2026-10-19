@@ -1,0 +1,12 @@
+{
+  "name": "Liyfe Transpo",
+  "short_name": "Liyfe",
+  "description": "Prescription pickup and delivery",
+  "start_url": "app.html",
+  "display": "standalone",
+  "background_color": "#121316",
+  "theme_color": "#121316",
+  "icons": [
+    { "src": "assets/img/icon-192.png", "sizes": "192x192", "type": "image/png" }
+  ]
+}

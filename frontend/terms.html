@@ -1,0 +1,66 @@
+<!doctype html>
+<!-- DRAFT: have an Illinois attorney review before launch. -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Terms of Service · Liyfe Transpo</title>
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="apple-touch-icon" href="assets/img/icon-192.png">
+  <meta name="theme-color" content="#0b0b0c">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Saira:ital,wght@0,600;0,700;0,800;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <header id="site-header"></header>
+  <main class="legal">
+    <div class="narrow">
+      <h1>Terms of Service</h1>
+      <p class="muted">Last updated: October 19, 2026</p>
+
+      <p>These terms are an agreement between you and Liyfe Transpo LLC ("Liyfe Transpo," "we," "us") for our prescription pickup and delivery service in Illinois. By creating an account or placing an order, you agree to them.</p>
+
+      <h2>1. What we do</h2>
+      <p>At your request, we act as your authorized agent to pick up prescriptions and pharmacy items that have already been filled for you, and deliver them to the address you give us. We work for you, not for any pharmacy. We are not a pharmacy. We do not fill, dispense, or recommend medication, and we do not give medical advice.</p>
+
+      <h2>2. Your authorization</h2>
+      <p>Before we can pick up for you, you must sign our pickup authorization and tell your pharmacy that we are your authorized pickup. Each pharmacy decides whether to release a prescription. If a pharmacy will not release it, we will let you know. You can revoke your authorization at any time from your account.</p>
+
+      <h2>3. Eligibility and accurate information</h2>
+      <p>You must be at least 18 years old. You agree that the information you give us, including your name, date of birth, phone number and address, is accurate and is your own. You may only request pickups of prescriptions that belong to you.</p>
+
+      <h2>4. Prices and payment</h2>
+      <p>Delivery fees are based on the driving distance from the pharmacy to your delivery address, charged in flat-rate distance tiers, plus a service fee applied to every order no matter how you pay. You will see the total before you pay. Payment is due when you place your order and is processed by Stripe. Your pharmacy copay is separate and is owed to the pharmacy. We do not pay copays for you unless we agree to that in writing.</p>
+
+      <h2>5. Cancellations and refunds</h2>
+      <p>You can cancel an unpaid order at any time. For paid orders, call us. If we have not left for the pharmacy, we will refund your delivery fee. If we make the trip and cannot complete the pickup because the prescription isn't ready, the pharmacy won't release it, or the copay isn't paid, the delivery fee may not be refundable. If we fail to deliver for reasons within our control, we will refund your delivery fee.</p>
+
+      <h2>6. Delivery</h2>
+      <p>We deliver to the address on your order. Someone may need to be present to receive the delivery. Controlled medications may require your signature or ID. If we cannot complete a delivery, we will contact you and may return the item to the pharmacy.</p>
+
+      <h2>7. Medication questions and emergencies</h2>
+      <p>For questions about your medication, contact your pharmacist or doctor. Our service is not for emergencies. If you have a medical emergency, call 911.</p>
+
+      <h2>8. Our responsibility</h2>
+      <p>We handle your items with care and keep sealed bags sealed. To the extent allowed by law, our total responsibility for any claim related to an order is limited to the amount you paid us for that order. We are not responsible for delays caused by pharmacies, weather, road conditions, or other things outside our control.</p>
+
+      <h2>9. Changes</h2>
+      <p>We may update these terms. If we make important changes, we will tell you on the site or by email before they take effect.</p>
+
+      <h2>10. Contact</h2>
+      <p>Liyfe Transpo LLC · <span data-lt="phone"></span> · <span data-lt="email"></span></p>
+      <p class="small muted">These terms are governed by the laws of the State of Illinois.</p>
+    </div>
+  </main>
+  <footer id="site-footer"></footer>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/common.js"></script>
+  <script>
+    document.querySelectorAll('[data-lt=phone]').forEach((e) => { e.textContent = LT_CONFIG.PHONE; });
+    document.querySelectorAll('[data-lt=email]').forEach((e) => { e.textContent = LT_CONFIG.EMAIL; });
+  </script>
+</body>
+</html>

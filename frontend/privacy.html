@@ -1,0 +1,65 @@
+<!doctype html>
+<!-- DRAFT: have an Illinois attorney review before launch. -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy · Liyfe Transpo</title>
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="apple-touch-icon" href="assets/img/icon-192.png">
+  <meta name="theme-color" content="#0b0b0c">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Saira:ital,wght@0,600;0,700;0,800;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <header id="site-header"></header>
+  <main class="legal">
+    <div class="narrow">
+      <h1>Privacy Policy</h1>
+      <p class="muted">Last updated: October 19, 2026</p>
+
+      <p>Liyfe Transpo LLC handles information about your prescriptions, so we take privacy seriously. This policy explains what we collect, why, and who we share it with.</p>
+
+      <h2>What we collect</h2>
+      <ul>
+        <li><strong>Account information:</strong> your name and email from Google sign-in.</li>
+        <li><strong>Identity details pharmacies use:</strong> full legal name, date of birth, phone number, and home address.</li>
+        <li><strong>Order details:</strong> pharmacy name and address, prescription numbers you choose to give us, delivery address and instructions, whether an order includes a controlled medication, and your copay arrangement.</li>
+        <li><strong>Your signed authorization:</strong> the name you typed, the date and time, your IP address, and your browser type, so we can prove the authorization is genuine.</li>
+        <li><strong>Payment:</strong> processed by Stripe. We never see or store your full card number.</li>
+      </ul>
+      <p>We don't ask for the names of your medications, and you don't need to tell us.</p>
+
+      <h2>How we use it</h2>
+      <p>Only to provide the service: to identify you to your pharmacy, pick up and deliver your order, contact you about it, take payment, and keep required business records.</p>
+
+      <h2>Who we share it with</h2>
+      <ul>
+        <li><strong>Your pharmacy</strong>, only what it needs to release your order to us.</li>
+        <li><strong>Service providers</strong> that run our website: Supabase (database and sign-in), Render (servers), Google (sign-in and maps), and Stripe (payments). We don't send health details to Stripe.</li>
+        <li><strong>When the law requires it</strong>, such as a valid court order.</li>
+      </ul>
+      <p>We never sell your information or use it for advertising.</p>
+
+      <h2>How we protect it</h2>
+      <p>Your data is encrypted in transit, access is limited to staff who need it, and drivers see only what they need for the delivery. Sealed pharmacy bags stay sealed.</p>
+
+      <h2>Your choices</h2>
+      <p>You can view and update your information, revoke your pickup authorization, or ask us to delete your account at any time. We may keep order and payment records as long as the law requires.</p>
+
+      <h2>Contact</h2>
+      <p>Questions or requests: <span data-lt="email"></span> · <span data-lt="phone"></span></p>
+    </div>
+  </main>
+  <footer id="site-footer"></footer>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/common.js"></script>
+  <script>
+    document.querySelectorAll('[data-lt=phone]').forEach((e) => { e.textContent = LT_CONFIG.PHONE; });
+    document.querySelectorAll('[data-lt=email]').forEach((e) => { e.textContent = LT_CONFIG.EMAIL; });
+  </script>
+</body>
+</html>

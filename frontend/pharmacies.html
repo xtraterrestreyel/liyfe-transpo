@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>For Pharmacies · Liyfe Transpo</title>
+  <meta name="description" content="How Liyfe Transpo works with pharmacies in Champaign, Urbana, Danville and surrounding towns as the patient's authorized pickup agent.">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="apple-touch-icon" href="assets/img/icon-192.png">
+  <meta name="theme-color" content="#0b0b0c">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Saira:ital,wght@0,600;0,700;0,800;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <main>
+    <section class="hero" style="padding-bottom:56px">
+      <div class="container">
+        <div class="eyebrow">For pharmacies</div>
+        <h1 style="max-width:16em">A dependable pickup agent for your patients who can't get to you.</h1>
+        <p class="lead" style="font-size:1.15rem;color:var(--muted);max-width:40em">Liyfe Transpo is a local delivery service in Champaign and Vermilion counties. Your patients hire us as their personal pickup agent. We aren't asking you to hire us, pay us, or change how you dispense.</p>
+      </div>
+    </section>
+
+    <section style="padding-top:24px">
+      <div class="container">
+        <h2>How we work with your pharmacy</h2>
+        <div class="grid-3" style="margin-top:24px">
+          <div class="card">
+            <div class="step-num">1</div>
+            <h3>The patient authorizes us</h3>
+            <p class="muted">Each customer e-signs a pickup authorization naming Liyfe Transpo as their agent. We record when and how it was signed, and they can revoke it any time.</p>
+          </div>
+          <div class="card">
+            <div class="step-num">2</div>
+            <h3>The patient tells you</h3>
+            <p class="muted">We ask every customer to add us to your authorized-pickup list, using your own form if you have one. You stay in full control of who you release to.</p>
+          </div>
+          <div class="card">
+            <div class="step-num">3</div>
+            <h3>We pick up and deliver</h3>
+            <p class="muted">Our driver arrives with ID and the patient's information. The bag stays sealed until it's handed to the patient at their door.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="container grid-2">
+        <div>
+          <h2>Our standards</h2>
+          <ul style="padding-left:1.2em;display:grid;gap:8px">
+            <li>Signed patient authorization on file for every customer, with a printable copy available on request.</li>
+            <li>Drivers carry company ID and verify the patient's name and date of birth at your counter.</li>
+            <li>Sealed bags are never opened and are delivered directly, the same day.</li>
+            <li>Signature or ID required at the door for controlled medications.</li>
+            <li>Patient information is kept private and used only for the delivery.</li>
+            <li>Copays are paid by the patient directly to you. We don't handle them unless the patient arranges it.</li>
+            <li>Undeliverable items come back to your pharmacy the same day.</li>
+          </ul>
+        </div>
+        <div>
+          <h2>Want to tell your patients about us?</h2>
+          <p class="muted">If you'd like, we can list your pharmacy as one that knows how we work, and leave flyers you can share with patients who need delivery. We list a pharmacy only with its permission.</p>
+          <div id="listed-wrap" class="hidden">
+            <h3 style="margin-top:18px">Pharmacies familiar with Liyfe Transpo</h3>
+            <ul id="listed" style="padding-left:1.2em"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="narrow">
+        <h2>Get in touch</h2>
+        <p class="muted">Questions, your pickup policy, or a time for us to stop by and introduce ourselves? Send us a note.</p>
+        <form id="inq-form" class="card form-grid" novalidate>
+          <div class="full">
+            <label for="i-pharmacy_name">Pharmacy name</label>
+            <input id="i-pharmacy_name" type="text" required>
+          </div>
+          <div>
+            <label for="i-contact_name">Your name <span class="opt">(optional)</span></label>
+            <input id="i-contact_name" type="text">
+          </div>
+          <div>
+            <label for="i-phone">Phone</label>
+            <input id="i-phone" type="tel">
+          </div>
+          <div class="full">
+            <label for="i-email">Email</label>
+            <input id="i-email" type="email">
+          </div>
+          <div class="full">
+            <label for="i-message">Message <span class="opt">(optional)</span></label>
+            <textarea id="i-message" placeholder="Please don't include patient information here."></textarea>
+          </div>
+          <input class="honeypot" type="text" id="i-website" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="full" id="inq-msg"></div>
+          <div class="full"><button class="btn btn-primary" type="submit">Send</button></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/common.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const { api, esc, alertBox, READY, C } = window.LT;
+      if (!READY) {
+        const tel = C.PHONE.replace(/[^\d+]/g, '');
+        document.getElementById('inq-form').outerHTML = `<div class="card"><p style="margin:0">Call <a href="tel:${tel}">${esc(C.PHONE)}</a> or email <a href="mailto:${esc(C.EMAIL)}">${esc(C.EMAIL)}</a>. We're happy to stop by and introduce ourselves.</p></div>`;
+        return;
+      }
+      try {
+        const { pharmacies } = await api('/api/public/pharmacies', { auth: false });
+        if (pharmacies.length) {
+          document.getElementById('listed').innerHTML = pharmacies.map((p) =>
+            `<li><strong>${esc(p.name)}</strong>${p.address ? ' · ' + esc(p.address) : ''}</li>`).join('');
+          document.getElementById('listed-wrap').classList.remove('hidden');
+        }
+      } catch { /* list is optional */ }
+
+      const form = document.getElementById('inq-form');
+      const msg = document.getElementById('inq-msg');
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const v = (id) => document.getElementById(id).value.trim();
+        if (!v('i-pharmacy_name')) return alertBox(msg, 'Please enter the pharmacy name.');
+        if (!v('i-email') && !v('i-phone')) return alertBox(msg, 'Please leave an email or phone number.');
+        const btn = form.querySelector('button');
+        btn.disabled = true;
+        try {
+          await api('/api/pharmacy-inquiries', { method: 'POST', auth: false, body: {
+            pharmacy_name: v('i-pharmacy_name'), contact_name: v('i-contact_name'), phone: v('i-phone'),
+            email: v('i-email'), message: v('i-message'), website: v('i-website'),
+          } });
+          form.reset();
+          alertBox(msg, "Thanks! We'll be in touch shortly.", 'ok');
+        } catch (err) {
+          alertBox(msg, err.message);
+        } finally {
+          btn.disabled = false;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

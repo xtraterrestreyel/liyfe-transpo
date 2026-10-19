@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Liyfe Transpo · Prescription Pickup &amp; Delivery</title>
+  <meta name="description" content="Liyfe Transpo picks up your prescriptions from your pharmacy and brings them to your door in Champaign, Urbana, Savoy, Tolono, Tuscola, Rantoul, St. Joseph and Danville, Illinois.">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="apple-touch-icon" href="assets/img/icon-192.png">
+  <meta name="theme-color" content="#0b0b0c">
+  <meta property="og:title" content="Liyfe Transpo · Prescription Pickup & Delivery">
+  <meta property="og:description" content="We pick up your prescriptions and bring them to your door. Champaign to Danville.">
+  <meta property="og:image" content="assets/img/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Saira:ital,wght@0,600;0,700;0,800;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Prescription pickup &amp; delivery · East Central Illinois</div>
+          <h1>Your prescriptions, picked up and brought home.</h1>
+          <p class="lead">Sign up once, authorize us as your pickup, and we'll grab your medication from your pharmacy and deliver it to your door. No waiting in line and no extra trips.</p>
+          <div class="hero-actions" id="hero-actions">
+            <a href="#pricing" class="btn btn-outline">See pricing</a>
+          </div>
+          <p class="small muted" style="margin-top:14px">Sign in with your Google account. It takes about three minutes.</p>
+          <div class="hero-price">
+            <div class="price-big" id="hero-price">$4.99</div>
+            <p class="muted" style="margin:0" id="hero-price-note">for the first 10 miles from your pharmacy</p>
+          </div>
+          <div class="chips" id="hero-towns"></div>
+        </div>
+        <div>
+          <img class="hero-logo" src="assets/img/logo-full.webp" width="1100" height="684"
+               alt="Liyfe Transpo LLC logo: red Star of Life, highway, and black SUV">
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section id="how">
+      <div class="container">
+        <div class="eyebrow">How it works</div>
+        <h2>Three steps, then we handle the trip.</h2>
+        <div class="grid-3" style="margin-top:28px">
+          <div class="card">
+            <div class="step-num">1</div>
+            <h3>Sign up and authorize us</h3>
+            <p class="muted">Create your account with Google, enter the details your pharmacy uses to identify you, and e-sign a pickup authorization naming Liyfe Transpo as your authorized pickup.</p>
+          </div>
+          <div class="card">
+            <div class="step-num">2</div>
+            <h3>Let your pharmacy know</h3>
+            <p class="muted">Tell your pharmacy that Liyfe Transpo is allowed to pick up for you. We give you a printable authorization letter to make it easy.</p>
+          </div>
+          <div class="card">
+            <div class="step-num">3</div>
+            <h3>Request a delivery</h3>
+            <p class="muted">When your prescription is ready, place an order, pay the flat delivery fee, and we'll pick it up and bring it to your door.</p>
+          </div>
+        </div>
+        <div class="alert alert-info" style="margin-top:28px">
+          <strong>We work for you, not the pharmacy.</strong> You hire Liyfe Transpo as your personal pickup agent. Each pharmacy still decides whether to release a prescription, so step 2 matters.
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="band">
+      <div class="container grid-2" style="align-items:start">
+        <div>
+          <div class="eyebrow">Simple pricing</div>
+          <h2>Flat fees by distance.</h2>
+          <p class="muted">Distance is the driving distance from your pharmacy to your door. Every 10 miles is one tier, and each tier is the same flat price. A small service fee is added to every order, the same no matter how you pay.</p>
+          <table class="tier-table" id="tier-table" aria-label="Delivery pricing tiers"></table>
+          <p class="small muted" style="margin-top:12px">Pay with credit or debit card, Apple Pay, Google Pay, or Cash App Pay. Your pharmacy copay is separate and is paid to the pharmacy.</p>
+        </div>
+        <div class="card">
+          <h3>Estimate your delivery</h3>
+          <p class="muted small">Enter your pharmacy's address and yours.</p>
+          <form id="estimate-form" class="form-grid" novalidate>
+            <div class="full">
+              <label for="est-from">Pharmacy address</label>
+              <input id="est-from" type="text" placeholder="e.g. 2502 N Prospect Ave, Champaign, IL" required>
+            </div>
+            <div class="full">
+              <label for="est-to">Your address</label>
+              <input id="est-to" type="text" placeholder="e.g. 123 Main St, Danville, IL" required>
+            </div>
+            <div class="full"><button class="btn btn-primary btn-block" type="submit">Get estimate</button></div>
+          </form>
+          <div id="estimate-msg" style="margin-top:14px"></div>
+          <div id="estimate-result"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Service area -->
+    <section id="area">
+      <div class="container">
+        <div class="eyebrow">Service area</div>
+        <h2>Champaign to Danville and the towns between.</h2>
+        <p class="muted">Rings show distance tiers from a Champaign pharmacy. Your actual price is based on the driving distance from <em>your</em> pharmacy to <em>your</em> address. Outside the area? Call us.</p>
+        <div id="service-map" aria-label="Map of the service area"></div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="band">
+      <div class="narrow">
+        <div class="eyebrow">Questions</div>
+        <h2>Good to know</h2>
+        <details><summary>Who do you work for, me or the pharmacy?</summary>
+          <p>You. When you sign up, you hire Liyfe Transpo and sign an authorization naming us as your authorized pickup. We aren't hired or paid by any pharmacy, and we're not a pharmacy ourselves.</p></details>
+        <details><summary>What information does the pharmacy need?</summary>
+          <p>Pharmacies usually identify you by your full name and date of birth, and sometimes your phone number or address. We collect these during sign-up and give them to the pharmacy only when we pick up for you.</p></details>
+        <details><summary>Do I have to tell my pharmacy about you?</summary>
+          <p>Yes. Pharmacies decide who they release prescriptions to. Call or stop by and say Liyfe Transpo is your authorized pickup, or bring them the printable authorization letter from your account. Some pharmacies have their own form, and we'll help you with it.</p></details>
+        <details><summary>How does the copay work?</summary>
+          <p>Your copay goes to the pharmacy, not to us. Most pharmacies let you pay over the phone before pickup. If you have no copay, just tell us. If you're not sure, choose "I need help" when you order and we'll call you.</p></details>
+        <details><summary>Can you pick up controlled medications?</summary>
+          <p>Some, depending on the pharmacy's policy. Tell us when you order, and we may need your signature or ID when we hand it over.</p></details>
+        <details><summary>Can I cancel my authorization?</summary>
+          <p>Yes, any time from your account. We stop picking up for you right away.</p></details>
+      </div>
+    </section>
+
+    <section>
+      <div class="narrow center">
+        <h2>Ready to skip the pharmacy line?</h2>
+        <p class="muted">Create your account and authorize your first pickup in a few minutes.</p>
+        <div id="cta-actions" style="display:flex;justify-content:center"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/home.js"></script>
+</body>
+</html>
